@@ -1,7 +1,8 @@
 const fs = require('fs');
-const { generateSVG } = require('../lib/svg'); // Replace with the actual path to your generate SVG file
-const { validateId, validateText, validateColor } = require('../lib/inq'); // Replace with the actual path to your validation file
+const { generateSVG } = require('../lib/svg');
+const { validateId, validateText, validateColor } = require('../lib/inq'); 
 
+//test for id not containing spaces or invalid char for file creation
 describe('Validation Tests', () => {
   describe('validateId', () => {
     test('should return true for a valid ID', () => {
@@ -19,7 +20,7 @@ describe('Validation Tests', () => {
       expect(result).toBe('The logo name contains invalid characters.');
     });
   });
-
+//assure text for logo is 3 characters, and that when more is returned you get an error
   describe('validateText', () => {
     test('should return true for a valid text', () => {
       const result = validateText('ABC');
@@ -31,7 +32,7 @@ describe('Validation Tests', () => {
       expect(result).toBe('Please enter exactly 3 letters.');
     });
   });
-
+//assure the text color provided is valid
   describe('validateTextColor', () => {
     test('should return true for a valid color (hexadecimal)', () => {
       const result = validateColor('#ff0000');
@@ -49,7 +50,7 @@ describe('Validation Tests', () => {
     });
   });
 });
-
+//simulate file creation
 describe('generateSVG', () => {
   // Mock fs.writeFile function
   jest.mock('fs');
@@ -72,7 +73,7 @@ describe('generateSVG', () => {
       expect.any(Function)
     );
   });
-
+//test for an invalid shape
   test('should throw an error for an invalid shape', () => {
     const id = 'mylogo';
     const text = 'ABC';
@@ -84,7 +85,7 @@ describe('generateSVG', () => {
       generateSVG(id, text, textColor, shape, shapeColor);
     }).toThrow('Invalid shape provided.');
   });
-
+//create successful file
   test('should generate and save an SVG file with valid textColor and shapeColor', () => {
     const id = 'mylogo';
     const text = 'ABC';
