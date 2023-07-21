@@ -24,6 +24,9 @@
 ## Description
  This project provides a program for creating SVG logos for your projecs. It is a command line application that will prompt for all the details regarding what you would like your logo to look like, then from these inputs, create a .svg file that can be used to identify your project.
 
+ ## Link to Demo
+ https://drive.google.com/file/d/1dwfbfMGk249CtuRxfIIuU4-V3nQT9mS4/view
+
 <a name="installation"></a>
 ## Installation
  
